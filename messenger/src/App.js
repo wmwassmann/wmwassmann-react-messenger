@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
-import Home from './components/Home/Home';
-import Messenger from './components/Messenger/Messenger';
+import Home from './pages/Home/Home';
+import Messenger from './pages/Messenger/Messenger';
 
 
 function App() {
@@ -13,12 +13,13 @@ function App() {
           <Navbar/>
           <div>
           <Route exact path='/' component={Home} />
-          <Route exact path='messenger' component={Messenger} />
+          <Route exact path='/m' component={Messenger} />
           </div>
 
         </div>
       </Switch>
     </Router>
+  
   );
 }
 
