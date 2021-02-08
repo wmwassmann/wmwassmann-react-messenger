@@ -1,23 +1,24 @@
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Navbar from './components/Navbar/Navbar';
+import Home from './components/Home/Home';
+import Messenger from './components/Messenger/Messenger';
 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <div>
+          <Navbar/>
+          <div>
+          <Route exact path='/' component={Home} />
+          <Route exact path='messenger' component={Messenger} />
+          </div>
+
+        </div>
+      </Switch>
+    </Router>
   );
 }
 
