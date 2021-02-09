@@ -4,6 +4,7 @@ import './pages/css/style.css';
 import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
 import Messenger from './pages/Messenger/Messenger';
+import Login from './components/Login/App';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <div>
           <Route exact path='/' component={Home} />
           <Route exact path='/m' component={Messenger} />
+          <Route exact path='/l' component={Login} />
           </div>
 
         </div>

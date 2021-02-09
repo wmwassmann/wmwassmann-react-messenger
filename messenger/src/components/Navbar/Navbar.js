@@ -16,6 +16,9 @@ function Navbar() {
       <li className="nav-item">
         <a className="nav-link" href="/m">Messenger</a>
       </li>    
+      <li className="nav-item">
+        <a className="nav-link" href="/l">Login</a>
+      </li>   
     </ul>
   </div>  
 
