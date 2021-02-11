@@ -5,3 +5,14 @@
 .form {
     width: 100%;
 }
+
+.tab-container {
+    width: 250px;    
+}
+
+.sidebar {
+    height: 100vh;
+    display: flex;
+    flex-grow: initial;
+}
+
