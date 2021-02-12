@@ -56,11 +56,12 @@ export default function Sidebar({ id }) {
             <Modal show={modalOpen} onHide={closeModal}>
                 {conversationsOpen ?
                 <NewConversationModal closeModal={closeModal}/> :
-                <NewContactModal closeModal={closeModal}/>            
+                <NewContactModal closeModal={closeModal}/>      
+                  
             }
             </Modal>
                 
-
+              
                    
         </div>
     )

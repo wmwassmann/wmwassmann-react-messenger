@@ -2,14 +2,24 @@ import React from 'react';
 import Login from './Login';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import Home from '../Home/Home';
+import { ContactsProvider } from '../../contexts/ContactsProvider';
+import { ConversationsProvider } from '../../contexts/ConversationsProvider';
 
 function App() {
-    const [id, setId] = useLocalStorage('id')    
+    const [id, setId] = useLocalStorage('id')
+
+    const home = (
+        <ContactsProvider>
+            <ConversationsProvider>
+                <Home id={id} />
+            </ConversationsProvider>
+        </ContactsProvider>
+    )
 
     return (
 
-        id ? <Home id={id} /> : <Login onIdSubmit={setId} />
-      
+        id ? home : <Login onIdSubmit={setId} />
+
     )
 }
 
