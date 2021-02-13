@@ -12,7 +12,7 @@ function App() {
     <Router>
       <Switch>
         <div>
-          <Navbar/>
+          {/* <Navbar/> */}
           <div>
           <Route exact path='/' component={Home} />
           <Route exact path='/m' component={Messenger} />

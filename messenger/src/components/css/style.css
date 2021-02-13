@@ -16,3 +16,8 @@
     flex-grow: initial;
 }
 
+.message-form {
+    height: 75px;
+    resize: none;
+}
+

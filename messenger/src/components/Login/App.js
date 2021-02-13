@@ -9,7 +9,7 @@ function App() {
     const [id, setId] = useLocalStorage('id')
 
     const home = (
-        <ContactsProvider>
+        <ContactsProvider id={id}>
             <ConversationsProvider>
                 <Home id={id} />
             </ConversationsProvider>
