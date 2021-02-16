@@ -9,8 +9,8 @@ function App() {
     const [id, setId] = useLocalStorage('id')
 
     const home = (
-        <ContactsProvider id={id}>
-            <ConversationsProvider>
+        <ContactsProvider>
+            <ConversationsProvider id={id}>
                 <Home id={id} />
             </ConversationsProvider>
         </ContactsProvider>

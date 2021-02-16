@@ -6,12 +6,11 @@ import '../css/style.css';
 export default function CurrentConversation() {
 
     const [text, setText] = useState('');
-    const { sendMessage, selectedConversation } = useConversations
+    const { sendMessage, selectedConversation } = useConversations()
 
     function handleSubmit(e) {
         e.preventDefault() 
-
-        sendMessage(selectedConversation.recipients.map(recipient => recipient.id),)
+        sendMessage(selectedConversation.recipients.map(r => r.id), text)
         setText('')
     }
 
@@ -23,7 +22,7 @@ export default function CurrentConversation() {
 
            </div>
         
-        <Form onSubtmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
             <Form.Group className='m-2'>
                 <InputGroup>
                     <Form.Control

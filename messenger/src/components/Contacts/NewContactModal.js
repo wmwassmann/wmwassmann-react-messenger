@@ -8,6 +8,9 @@ export default function NewContactModal({ closeModal }) {
   const nameRef = useRef()
   const { createContact } = useContacts();
 
+
+
+
   function handleSubmit(e) {
     e.preventDefault()
 
