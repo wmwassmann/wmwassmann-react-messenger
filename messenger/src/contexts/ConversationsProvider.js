@@ -1,6 +1,7 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect, useCallback } from 'react'
 import useLocalStorage from '../hooks/useLocalStorage';
 import { useContacts } from '../contexts/ContactsProvider';
+import { useSocket } from '../contexts/SocketProvider';
 
 
 
@@ -15,26 +16,28 @@ export function ConversationsProvider({ id, children }) {
     const [conversations, setConversations] = useLocalStorage('conversations', [])
     const [selectedConversationIndex, setSelectedConversationIndex] = useState(0);
     const { contacts } = useContacts();
+    const socket = useSocket();
 
     function createConversation(recipients) {
         setConversations(prevConversations => {
             return [...prevConversations, { recipients, messages: [] }]
-        }) 
+        })
     }
 
-    function addMessageToConversation({ recipients, text, sender }) {
+    const addMessageToConversation = useCallback(({ recipients, text, sender }) => {
         setConversations(prevConversations => {
             let madeChange = false
             const newMessage = { sender, text }
             const newConversations = prevConversations.map(conversation => {
                 if (arrayEquality(conversation.recipients, recipients)) {
-                    madeChange = true                
-                    return {...conversation, messages: [...conversation.messages, newMessage]
+                    madeChange = true
+                    return {
+                        ...conversation, messages: [...conversation.messages, newMessage]
                     }
                 }
                 return conversation;
             })
-            
+
 
             if (madeChange) {
                 return newConversations
@@ -42,9 +45,22 @@ export function ConversationsProvider({ id, children }) {
                 return [...prevConversations, { recipients, messages: [newMessage] }]
             }
         })
-            }
-   
+        // When setConversations changes, or you send a message - this function triggers.
+    }, [setConversations])
+
+
+
+
+    useEffect(() => {
+        if (socket == null) return
+     
+        socket.on('receive-message', addMessageToConversation)
+    
+        return () => socket.off('receive-message')
+      }, [socket, addMessageToConversation])
+
     function sendMessage(recipients, text) {
+        socket.emit('send-message', { recipients, text })
         addMessageToConversation({ recipients, text, sender: id })
 
     }
@@ -54,28 +70,28 @@ export function ConversationsProvider({ id, children }) {
     const formattedConversations = conversations.map((conversation, index) => {
         const recipients = conversation.recipients.map(recipient => {
             const contact = contacts.find(contact => {
-                return contact.id === recipient 
+                return contact.id === recipient
             })
-            const name = (contact && contact.name) || recipient 
-            return { id: recipient, name } 
+            const name = (contact && contact.name) || recipient
+            return { id: recipient, name }
         })
 
-        const messages  = conversation.messages.map(message => {
+        const messages = conversation.messages.map(message => {
             const contact = contacts.find(contact => {
                 return contact.id === message.sender
             })
             const name = (contact && contact.name) || message.sender
             const fromMe = id === message.sender
 
-            return { ...message, senderName: name, fromMe}
+            return { ...message, senderName: name, fromMe }
         })
-        
+
         const selected = index === selectedConversationIndex
-        return {...conversation, messages, recipients, selected}
-    }) 
+        return { ...conversation, messages, recipients, selected }
+    })
 
     const value = {
-        conversations: formattedConversations, 
+        conversations: formattedConversations,
         selectedConversation: formattedConversations[selectedConversationIndex],
         sendMessage,
         selectConversationIndex: setSelectedConversationIndex,
@@ -99,7 +115,7 @@ function arrayEquality(a, b) {
 
     return a.every((element, index) => {
         return element === b[index]
-    }) 
+    })
 }
 
 
