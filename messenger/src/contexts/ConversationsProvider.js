@@ -3,7 +3,8 @@ import useLocalStorage from '../hooks/useLocalStorage';
 import { useContacts } from '../contexts/ContactsProvider';
 import { useSocket } from '../contexts/SocketProvider';
 
-
+// https://reactjs.org/docs/context.html
+// Context provides a way to pass data through the component tree without having to pass props down manually at every level.
 
 const ConversationsContext = React.createContext()
 
