@@ -4,8 +4,15 @@ import { useConversations } from '../../contexts/ConversationsProvider';
 import '../css/style.css';
 
 export default function CurrentConversation() {
+    const date = Date();
+
+
+
+    console.log(date);
 
     const [text, setText] = useState('');
+    const [time, setTime] = useState('');
+ 
    
     const setRef = useCallback(node => {
         if (node) {
@@ -17,8 +24,10 @@ export default function CurrentConversation() {
     function handleSubmit(e) {
         e.preventDefault() 
         sendMessage(selectedConversation.recipients.map(r => r.id), 
-        text)
+        text, time)
         setText('')
+        setTime('');
+        console.log(setTime());
     }
 
 
@@ -26,7 +35,7 @@ export default function CurrentConversation() {
 
 
     return (
-        <div className='d-flex flex-column flex-grow-1'>            
+        <div className='message-content d-flex flex-column flex-grow-1'>            
            <div className= 'flex-grow-1 overflow-auto'>
             <div className='d-flex flex-column align-items-start justify-content-end px-3'>
 
@@ -62,7 +71,7 @@ export default function CurrentConversation() {
                         as='textarea' 
                         value={text}
                         required
-                        onChange={e => setText(e.target.value)}
+                        onChange={e =>  setText(e.target.value)}
                         />
                 <InputGroup.Append>
                     <Button type='submit'>Send

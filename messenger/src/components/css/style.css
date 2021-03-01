@@ -2,6 +2,10 @@
     height: 50vh
 }
 
+.navbar {
+    background-color: rgb(235, 235, 235);
+}
+
 .form {
     width: 100%;
 }
@@ -11,9 +15,29 @@
 }
 
 .sidebar {
-    height: 100vh;
+    height: 80vh;
     display: flex;
     flex-grow: initial;
+    margin-left: 300px;
+    margin-right: 300px;
+    background-color: rgb(235, 235, 235);
+}
+
+.item-list {
+    background-color: white;
+    border-radius: 6%;
+    margin-right: 265px;
+}
+
+.navbar-home {
+    background-color: white;
+    border-radius: 6%;
+    margin-left: 360px;
+    padding: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2vmax;
 }
 
 .message-form {
@@ -21,3 +45,11 @@
     resize: none;
 }
 
+.message-content {
+    margin-right: 300px;
+    background-color: rgb(243, 243, 243);
+}
+
+.body {
+    background-color: black;
+}

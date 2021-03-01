@@ -8,7 +8,8 @@ export default function Home({ id }) {
     const { selectedConversation } = useConversations();
 
     return (
-        <div className='sidebar d-flex'>
+        
+         <div className='sidebar d-flex'>
             <Sidebar id={id} />
             {selectedConversation && <CurrentConversation />}
         </div>

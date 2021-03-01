@@ -1,5 +1,6 @@
 const http = require('http').createServer();
 
+// Solved my CORS security issue
 const io = require('socket.io')(http, {
   cors: { origin: "*" }
 });
@@ -22,7 +23,7 @@ io.on('connection', (socket) => {
   })
 })
   
-
+// http requires a .listen to port
 http.listen(5000, ()=> console.log('listening on http://localhost:5000'))
 
 
