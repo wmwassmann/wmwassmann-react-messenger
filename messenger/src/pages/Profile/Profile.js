@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import Chat from '../../components/Chat/Chat';
+import MyProfile from '../../components/MyProfile/MyProfile';
 
-class Home extends Component {
+class Profile extends Component {
 
 
     render() {
         return (
         <main className='container'>
-           <Chat />      
+           <MyProfile />               
         </main>  
         )
     }
 }
 
-export default Home;
+export default Profile;

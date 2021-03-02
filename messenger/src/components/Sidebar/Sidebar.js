@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Tab, Nav, Button, Modal } from 'react-bootstrap';
+import { Tab, Nav, Button, Modal, Container, Row, Col, Image  } from 'react-bootstrap';
 import '../css/style.css';
 import Conversations from '../Conversations/Conversations';
 import NewConversationModal from '../Conversations/NewConversationModal';
@@ -26,7 +26,15 @@ export default function Sidebar({ id }) {
 
 
     return (
-        <div className='d-flex flex-column'>
+        <div className='d-flex flex-column'>|
+            {/* Profile Image Thumbnail */}
+            <Container>
+                <Row>
+                    <Col xs={6} md={4}>
+                        <Image src="holder.js/171x180" rounded />
+                    </Col>                    
+                </Row>
+            </Container>
             <Tab.Container activeKey={activeKey} onSelect={setActiveKey}>
                 <Nav variant='tabs' className='justify-content-center'>
                     <Nav.Item>
@@ -44,6 +52,7 @@ export default function Sidebar({ id }) {
                         <Contacts />
                     </Tab.Pane>
                 </Tab.Content>
+         
             </Tab.Container>        
 
             <div className='p-2 border-top border-right small'>

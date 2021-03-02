@@ -15,13 +15,14 @@ function Navbar() {
         <a className="nav-link active" href="/">Home</a>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="/m">Messenger</a>
+        <a className="nav-link" href="/p">Profile</a>
       </li>    
       <li className="nav-item">
         <a className="nav-link" href="/l">Login</a>
       </li>   
     </ul>
   </div>  
+  
 
 </nav>
 
