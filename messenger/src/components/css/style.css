@@ -32,12 +32,12 @@
 .navbar-home {
     background-color: white;
     border-radius: 6%;
-    margin-left: 360px;
+    margin-left: 293px;
     padding: 30px;
-    padding-left: 50px;
-    padding-right: 50px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 1.2vmax;
+    padding-left: 65px;
+    padding-right: 65px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 3.0vmax;
 }
 
 .message-form {
@@ -52,4 +52,9 @@
 
 .body {
     background-color: black;
+}
+
+.main-image {
+    width: 300px;
+    border-radius: 50%;
 }

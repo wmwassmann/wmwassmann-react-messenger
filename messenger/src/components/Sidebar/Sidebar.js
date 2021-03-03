@@ -5,6 +5,7 @@ import Conversations from '../Conversations/Conversations';
 import NewConversationModal from '../Conversations/NewConversationModal';
 import Contacts from '../Contacts/Contacts';
 import NewContactModal from '../Contacts/NewContactModal';
+import  Sample from '../img/sample.png';
 
 
 const CONVERSATIONS_KEY = 'conversations';
@@ -26,12 +27,12 @@ export default function Sidebar({ id }) {
 
 
     return (
-        <div className='d-flex flex-column'>|
+        <div className='d-flex flex-column'>
             {/* Profile Image Thumbnail */}
             <Container>
                 <Row>
                     <Col xs={6} md={4}>
-                        <Image src="holder.js/171x180" rounded />
+                        <Image className='main-image' src={Sample} rounded />
                     </Col>                    
                 </Row>
             </Container>

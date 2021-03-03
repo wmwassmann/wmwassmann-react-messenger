@@ -6,7 +6,7 @@ function Navbar() {
     return(
         
 <nav className="navbar navbar-dark bg">
-  <a className="navbar-home">Hermes</a>
+  <a className="navbar-home">HERMES</a>
     
     {/* <!-- Navbar links --> */}
   <div className='item-list'> 
