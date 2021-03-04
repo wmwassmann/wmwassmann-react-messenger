@@ -2,12 +2,13 @@
   "name": "hermes",
   "version": "1.0.0",
   "description": "",
-  "main": "server/server.js",
+  "main": "server.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "web": "node server.js"
   },
   "keywords": [],
   "author": "",
